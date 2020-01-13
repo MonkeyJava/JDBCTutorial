@@ -79,13 +79,13 @@ public class EmployeeService extends Util implements EmployeeDAO {
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
-
+            resultSet.next();
             employee.setId(resultSet.getInt("ID"));
             employee.setFirstName(resultSet.getString("FIRST_NAME"));
             employee.setLastName(resultSet.getString("LAST_NAME"));
             employee.setBirthday(resultSet.getDate("BIRTHDAY"));
             employee.setAddressId(resultSet.getInt("ADDRESS_ID"));
-            preparedStatement.executeUpdate();
+          //  preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
             e.printStackTrace();

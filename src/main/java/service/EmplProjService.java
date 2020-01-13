@@ -73,9 +73,10 @@ public class EmplProjService extends Util implements EmplProjDAO {
             preparedStatement.setInt(1, employeeId);
             preparedStatement.setInt(2, projectId);
            ResultSet resultSet = preparedStatement.executeQuery();
+           resultSet.next();
            emplProj.setEmployeeId(resultSet.getInt("EMPLOYEE_ID"));
            emplProj.setProjectId(resultSet.getInt("PROJECT_ID"));
-           preparedStatement.executeUpdate();
+         //  preparedStatement.executeUpdate();
         }catch (SQLException e){
             e.printStackTrace();
         }

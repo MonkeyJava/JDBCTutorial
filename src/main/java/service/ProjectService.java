@@ -75,10 +75,13 @@ public class ProjectService extends Util implements ProjectDAO {
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
 
+            resultSet.next();
             project.setId(resultSet.getInt("ID"));
+
             project.setTitle(resultSet.getString("TITLE"));
 
-            preparedStatement.executeUpdate();
+            //preparedStatement.executeUpdate();
+
         }catch (SQLException e){
             e.printStackTrace();
         }finally {

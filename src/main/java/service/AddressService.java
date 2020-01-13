@@ -85,14 +85,14 @@ public class AddressService extends Util implements AddressDAO {
             preparedStatement.setInt(1, id);
 
             ResultSet resultSet = preparedStatement.executeQuery();
-
+            resultSet.next();
             address.setId(resultSet.getInt("ID"));
             address.setCountry(resultSet.getString("COUNTRY"));
             address.setCity(resultSet.getString("CITY"));
             address.setStreet(resultSet.getString("STREET"));
             address.setPostCode(resultSet.getString("POST_CODE"));
 
-            preparedStatement.executeUpdate();
+           // preparedStatement.executeUpdate();
         }catch (SQLException e){
             e.printStackTrace();
         }finally {
@@ -141,7 +141,6 @@ public class AddressService extends Util implements AddressDAO {
 
         try{
             preparedStatement = connection.prepareStatement(sql);
-
             preparedStatement.setInt(1, address.getId());
 
             preparedStatement.executeUpdate();

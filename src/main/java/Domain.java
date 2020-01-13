@@ -25,31 +25,31 @@ public class Domain {
         Address address = new Address();
         address.setId(1);
         address.setCountry("Russia");
-        address.setCity("Tomsk");
-        address.setStreet("Lenina");
-        address.setPostCode("634057");
+        address.setCity("Novosibirsk");
+        address.setStreet("Petuhova");
+        address.setPostCode("656743");
 
         Employee employee = new Employee();
-        employee.setId(1);
-        employee.setFirstName("Ivan");
-        employee.setLastName("Ivanov");
+        employee.setId(2);
+        employee.setFirstName("Petr");
+        employee.setLastName("Petrov");
         Calendar calendar = Calendar.getInstance();
-        calendar.set(1989, Calendar.MAY, 1);
+        calendar.set(1976, Calendar.APRIL, 22);
         employee.setBirthday(new java.sql.Date(calendar.getTime().getTime()));
         employee.setAddressId(address.getId());
 
         Project project = new Project();
         project.setId(1);
-        project.setTitle("MegaProject");
+        project.setTitle("MegaSegaDriveProject");
 
         EmplProj emplProj = new EmplProj();
         emplProj.setEmployeeId(employee.getId());
         emplProj.setProjectId(project.getId());
 
         try {
-            /*addressService.add(address);
-            employeeService.add(employee);
-            projectService.add(project);
+          //  addressService.add(address);
+           // employeeService.add(employee);
+           /* projectService.add(project);
             emplProjService.add(emplProj);
             List<Address> list = addressService.getAll();
             for (Address a : list){
@@ -62,18 +62,30 @@ public class Domain {
             List<Project> projectList = projectService.getAll();
             for (Project p : projectList){
                 System.out.println(p);
-            }
-            List<EmplProj> emplProjList = emplProjService.getAll();
+            }*/
+
+           /* List<EmplProj> emplProjList = emplProjService.getAll();
             for (EmplProj ep : emplProjList){
                 System.out.println(ep);
             }*/
-            projectService.getById(project.getId());
+          /* Address a = addressService.getById(address.getId());
+            System.out.println(a);*/
+         /*   Employee e = employeeService.getById(employee.getId());
+            System.out.println(e);
+           Project p = projectService.getById(project.getId());
+            System.out.println(p);
+            EmplProj ep = emplProjService.getByEmpployeeIdAndProjectId(employee.getId(), project.getId());
+            System.out.println(ep);*/
+         /*   addressService.update(address);
+            employeeService.update(employee);
+            emplProjService.update(emplProj);
+            projectService.update(project);*/
+            projectService.remove(project);
+           //employeeService.remove(employee); //not work
+        // addressService.remove(address); // not work
+
         }catch (SQLException e){
             e.printStackTrace();
-        } finally {
-            if (connection != null){
-                connection.close();
-            }
         }
     }
 }
